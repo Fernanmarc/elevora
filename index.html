@@ -224,6 +224,23 @@
   .stars .inactive {
     color: #ddd;
   }
+
+  @media (max-width: 768px) {
+  .mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mob-text{
+    text-align: center;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  }
+}
+    
   </style>
 </head>
 <body>
@@ -258,7 +275,7 @@
   <section class="hero text-white d-flex align-items-center">
     <div class="container">
       <div class="row justify-content-center justify-content-md-start">
-        <div class="col-md-6 title-principal">
+        <div class="col-md-6 title-principal mob-text">
           <h1 style="color: #0f0f0f; margin-bottom: 15px;">Somos referência em diversidade e exclusive<br><span class="highlight">Somos referência.</span></h1>
           <p style="color: #0f0f0f;">Somos referência em diversidade, exclusividade de produtos,<br> imparcialidade, transparência.</p>
           <a href="#" class="btn btn-gradient mt-3">Saiba Mais</a>
@@ -361,11 +378,13 @@
 <section class="depoimentos py-5">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-6">
+      <div class="col-md-6 mobile">
         <h3>Depoimentos</h3>
         <p>Veja o que nossos clientes dizem</p>
-        <button id="prev" class="btn btn-outline-dark me-2">◀</button>
-        <button id="next" class="btn btn-outline-dark">▶</button>
+        <div style="margin-bottom: 20px;">
+          <button id="prev" class="btn btn-outline-dark me-2">◀</button>
+          <button id="next" class="btn btn-outline-dark">▶</button>
+        </div>
       </div>
       <div class="col-md-6 overflow-hidden">
         <div id="depoimento-wrapper" class="position-relative" style="height: 100%;">
