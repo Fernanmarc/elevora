@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css" />
+  <style>
+    body {
+      font-family: 'Epilogue', sans-serif;
+    }
+
+   .logo{
+    width: 90px;
+    }
+
+    .icone{
+          width: 50px;
+    margin-left: -10px;
+    margin-bottom: 40px;
+    }
+
+   .bg-dark {
+    --bs-bg-opacity: 1;
+    background-color: rgb(11 3 24) !important;
+    }
+
+    .navbar-nav .nav-link {
+      color: #e9dcc7 !important; /* Força o texto preto */
+      transition: color 0.3s ease; /* Suaviza a transição */
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #bfb8af !important; /* Cor ao passar o mouse (azul Bootstrap padrão) */
+    }
+
+    .hero {
+        background: #fffae7;
+        padding: 5px 0px 0px 0px;
+    }
+
+    .title-principal{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(90deg, #8e2de2, #4a00e0);
+      color: white;
+      width: 30%;
+    }
+
+    .btn-gradient:hover{
+      background: #8e2de2;
+    }
+
+    .highlight {
+      color: #b67de5;
+    }
+
+    .fw-bold{
+          margin-top: 15px;
+    }
+
+     .feature-card {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature-icon {
+    color: #ff6600;
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .feature-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .feature-text {
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  .splide__arrow--next {
+    right: 0em;
+  }
+
+  .splide__arrow--prev {
+    left: 0em;
+  }
+
+  .splide__arrow {
+    background-color: transparent !important;
+  }
+
+  .splide__arrow svg {
+    fill: #fff; /* seta branca via SVG */
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+    .bg-dark-purple {
+      background-color: #100914;
+    }
+    .bg-form {
+      background-color: #100914;
+      border: 1px solid #fff;
+    }
+    .gradient-line {
+      border: 0;
+      height: 4px;
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
+    }
+    .carousel-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+
+    .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .profile img {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #c7c7c7;
+      border-radius: 50%;
+      margin-right: 14px;
+    }
+
+    .name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .time {
+      font-size: 12px;
+      color: gray;
+    }
+
+    .stars .inactive {
+      color: #ccc;
+    }
+
+    .review-text {
+      font-size: 14px;
+      color: #333;
+    }
+    
+     .review-card {
+        padding: 25px 35px;
+        width: 100%;
+        background-color: #fff;
+        border: solid 1px #c1c1c1;
+        border-radius: 20px;
+        transition: transform 0.5s ease, opacity 0.3s ease;
+      }
+
+  .slide-left {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  .slide-right {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  .slide-in-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: slideInLeft 0.5s forwards;
+  }
+
+  .slide-in-right {
+    transform: translateX(100%);
+    opacity: 0;
+    animation: slideInRight 0.5s forwards;
+  }
+
+  @keyframes slideInLeft {
+    to {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInRight {
+    to {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
+  .stars {
+    font-size: 1.2rem;
+    color: #ffc107;
+  }
+
+  .stars .inactive {
+    color: #ddd;
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="./img/Logo.png" class="img-fluid logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Serviços</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero text-white d-flex align-items-center">
+    <div class="container">
+      <div class="row justify-content-center justify-content-md-start">
+        <div class="col-md-6 title-principal">
+          <h1 style="color: #0f0f0f; margin-bottom: 15px;">Somos referência em diversidade e exclusive<br><span class="highlight">Somos referência.</span></h1>
+          <p style="color: #0f0f0f;">Somos referência em diversidade, exclusividade de produtos,<br> imparcialidade, transparência.</p>
+          <a href="#" class="btn btn-gradient mt-3">Saiba Mais</a>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="./img/Img-Edit (5).png" alt="Imagem principal" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre Section -->
+ <section class="sobre text-white py-5 bg-dark-purple">
+  <div class="container text-center">
+    
+    <!-- Título e Subtítulo -->
+    <div class="mb-5">
+      <h2 class="fw-bold">Há mais de 20 anos transformando o mercado financeiro para melhorar a vida</h2>
+      <p class="text-secondary mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <!-- Cards lado a lado -->
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-eye"></i></div>
+          <div class="feature-title">Transparent Fees On Everything</div>
+          <div class="feature-text">A simple, straightforward investment process with clear & easy to understand pricing.</div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-bank"></i></div>
+          <div class="feature-title">Take Advantage Of Tax Relief</div>
+          <div class="feature-text">Claim up to 30% of your investment value back on any qualifying investments.</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
+          <div class="feature-title">Fully Regulated, Safe & Secure</div>
+          <div class="feature-text">This platform is authorized and regulated in the UK and Europe.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Serviços Section com Splide -->
+  <section class="servicos py-5 bg-dark-purple text-white">
+    <div class="container">
+      <h2 class="text-center mb-5">Nossos Serviços</h2>
+      <div class="splide" id="splide-servicos">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide"><div class="p-2 text-center"><img src="./img/card-1.jpg" alt="carousel-img"></div></li>
+            <li class="splide__slide"><div class="p-2 text-center"><img src="./img/card-2.jpg" alt="carousel-img"></div></li>
+            <li class="splide__slide"><div class="p-2 text-center"><img src="./img/card-3.jpg" alt="carousel-img"></div></li>
+            <li class="splide__slide"><div class="p-2 text-center"><img src="./img/card-4.jpg" alt="carousel-img"></div></li>
+            <li class="splide__slide"><div class="p-2 text-center"><img src="./img/card-5.jpg" alt="carousel-img"></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulário -->
+  <section class="formulario py-5 bg-dark-purple">
+    <div class="container bg-form p-5 rounded-4">
+      <div class="row">
+        <div class="col-md-6 text-white title-principal">
+          <img src="./img/icone.svg" alt="" class="icone">
+          <h2>Entre em Contato</h2>
+          <hr class="gradient-line" />
+          <p style="width: 80%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do re dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="col-md-6">
+          <form id="contactForm">
+            <input class="form-control mb-2" name="nome" placeholder="Nome" required>
+            <input class="form-control mb-2" name="empresa" placeholder="Empresa">
+            <input class="form-control mb-2" name="email" placeholder="Email" required>
+            <input class="form-control mb-2" name="telefone" placeholder="Telefone">
+            <input class="form-control mb-2" name="servico" placeholder="Serviço">
+            <textarea class="form-control mb-2" name="mensagem" placeholder="Mensagem"></textarea>
+            <button type="submit" class="btn btn-gradient w-100">Entrar em contato</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+
+<section class="depoimentos py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h3>Depoimentos</h3>
+        <p>Veja o que nossos clientes dizem</p>
+        <button id="prev" class="btn btn-outline-dark me-2">◀</button>
+        <button id="next" class="btn btn-outline-dark">▶</button>
+      </div>
+      <div class="col-md-6 overflow-hidden">
+        <div id="depoimento-wrapper" class="position-relative" style="height: 100%;">
+          <div id="depoimento-card" class="review-card transition"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Perguntas Frequentes -->
+  <section class="perguntas bg-dark-purple text-white py-5">
+    <div class="container">
+      <h3 class="text-center mb-4">Perguntas Frequentes</h3>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Preciso ser especialista em finanças para entender?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Não, nosso conteúdo é pensado para todos os públicos, mesmo quem não tem conhecimento em finanças.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Preciso ser especialista em finanças para entender?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Nosso conteúdo é acessível e simples para todos acompanharem sem dificuldade.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Preciso ser especialista em finanças para entender?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Explicamos de forma clara e objetiva para facilitar o aprendizado.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              Preciso ser especialista em finanças para entender?
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Utilizamos exemplos do dia a dia para tornar os conceitos mais simples.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-black text-white text-center py-3">
+    © Todos os direitos reservados
+  </footer>
+
+ <!-- Scripts do Splide -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Inicializa o Splide para os serviços
+    const splideServicos = document.getElementById('splide-servicos');
+    if (splideServicos) {
+      new Splide(splideServicos, {
+        perPage: 3,
+        type: 'loop',
+        breakpoints: {
+          768: { perPage: 1 }
+        }
+      }).mount();
+    }
+
+    // Inicializa o carrossel de depoimentos
+    const depoimentos = [
+      {
+        nome: "Agusto Lee",
+        tempo: "2 semanas atrás",
+        texto: "Essas 88 constelações dividem os mapas estelares feitos a partir das estrelas mais brilhantes.",
+        estrelas: 4,
+        imagem: "./img/foto.png"
+      },
+      {
+        nome: "Carla Mendes",
+        tempo: "1 semana atrás",
+        texto: "Serviço excelente! Me surpreendi com a qualidade e o atendimento.",
+        estrelas: 5,
+        imagem: "./img/foto2.png"
+      },
+      {
+        nome: "Rafael Souza",
+        tempo: "3 dias atrás",
+        texto: "Tive uma boa experiência. Voltaria a comprar com certeza.",
+        estrelas: 4,
+        imagem: "./img/foto3.png"
+      }
+    ];
+
+    let current = 0;
+    const card = document.getElementById('depoimento-card');
+
+    function renderDepoimento(index) {
+      const dep = depoimentos[index];
+      const estrelasAtivas = "★ ".repeat(dep.estrelas);
+      const estrelasInativas = "★ ".repeat(5 - dep.estrelas);
+
+      card.innerHTML = `
+        <div class="profile d-flex align-items-center mb-2">
+          <img src="${dep.imagem}" alt="Foto do usuário" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%; margin-right: 10px;">
+          <div>
+            <div class="name fw-bold">${dep.nome}</div>
+            <div class="time text-muted">${dep.tempo}</div>
+          </div>
+        </div>
+        <div class="stars mb-2">
+          ${estrelasAtivas}<span class="inactive">${estrelasInativas}</span>
+        </div>
+        <div class="review-text">
+          ${dep.texto}
+        </div>
+      `;
+    }
+
+    function animateChange(direction) {
+      card.classList.remove('slide-in-left', 'slide-in-right');
+      card.classList.add(direction === 'next' ? 'slide-left' : 'slide-right');
+
+      setTimeout(() => {
+        current = (direction === 'next')
+          ? (current + 1) % depoimentos.length
+          : (current - 1 + depoimentos.length) % depoimentos.length;
+
+        renderDepoimento(current);
+
+        card.classList.remove('slide-left', 'slide-right');
+        card.classList.add(direction === 'next' ? 'slide-in-right' : 'slide-in-left');
+      }, 300);
+    }
+
+    document.getElementById('next').addEventListener('click', () => animateChange('next'));
+    document.getElementById('prev').addEventListener('click', () => animateChange('prev'));
+
+    renderDepoimento(current);
+
+    // Formulário
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const data = new FormData(this);
+      const text = `Nome: ${data.get("nome")}, Empresa: ${data.get("empresa")}, Email: ${data.get("email")}, Telefone: ${data.get("telefone")}, Serviço: ${data.get("servico")}, Mensagem: ${data.get("mensagem")}`;
+      const phone = "SEUNUMERO";
+      window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`, "_blank");
+
+      fetch("URL_DO_GOOGLE_SHEETS_SCRIPT", {
+        method: "POST",
+        mode: "no-cors",
+        body: new URLSearchParams(data)
+      });
+
+      alert("Mensagem enviada!");
+      this.reset();
+    });
+  });
+</script>
+
+</body>
+</html>
