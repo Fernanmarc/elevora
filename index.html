@@ -26,7 +26,7 @@
 
    .bg-dark {
     --bs-bg-opacity: 1;
-    background-color: rgb(11 3 24) !important;
+    background-color: rgb(8, 5, 14) !important;
     }
 
     .navbar-nav .nav-link {
@@ -39,7 +39,8 @@
     }
 
     .hero {
-        background: #3c2352;
+        /* background: #fffae7; */
+        background-color: #100914;
         padding: 5px 0px 0px 0px;
     }
 
@@ -52,7 +53,7 @@
     .btn-gradient {
       background: linear-gradient(90deg, #8e2de2, #4a00e0);
       color: white;
-      width: 30%;
+      width: 50%;
     }
 
     .btn-gradient:hover{
@@ -84,7 +85,7 @@
   }
 
   .feature-icon {
-    color: #ff6600;
+    color: #be19ff;
     font-size: 28px;
     margin-bottom: 16px;
   }
@@ -119,10 +120,10 @@
   }
 
     .bg-dark-purple {
-      background-color: #2c1b35;
+      background-color: #100914;
     }
     .bg-form {
-      background-color: #3d2d4f;
+      background-color: #100914;
       border: 1px solid #fff;
     }
     .gradient-line {
@@ -136,6 +137,165 @@
       object-fit: cover;
       border-radius: 12px;
     }
+
+
+    .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .profile img {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #c7c7c7;
+      border-radius: 50%;
+      margin-right: 14px;
+    }
+
+    .name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .time {
+      font-size: 12px;
+      color: gray;
+    }
+
+    .stars .inactive {
+      color: #ccc;
+    }
+
+    .review-text {
+      font-size: 14px;
+      color: #333;
+    }
+    
+     .review-card {
+        padding: 25px 35px;
+        width: 100%;
+        background-color: #fff;
+        border: solid 1px #c1c1c1;
+        border-radius: 20px;
+        transition: transform 0.5s ease, opacity 0.3s ease;
+      }
+
+  .slide-left {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  .slide-right {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  .slide-in-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: slideInLeft 0.5s forwards;
+  }
+
+  .slide-in-right {
+    transform: translateX(100%);
+    opacity: 0;
+    animation: slideInRight 0.5s forwards;
+  }
+
+  @keyframes slideInLeft {
+    to {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInRight {
+    to {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
+  .stars {
+    font-size: 1.2rem;
+    color: #ffc107;
+  }
+
+  .stars .inactive {
+    color: #ddd;
+  }
+
+  .card-brilho {
+  transition: box-shadow 0.3s ease;
+}
+
+.card-brilho:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.container-scroll {
+  overflow: hidden;
+  background-color: #100914;
+  white-space: nowrap;
+  padding: 2px 0;
+  position: relative;
+
+  /* Borda só em cima e embaixo */
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+
+  /* Remove bordas arredondadas */
+  border-radius: 0;
+}
+
+    .scroll-content {
+      display: inline-block;
+      animation: scroll-left 50s linear infinite;
+    }
+
+ .scroll-content span {
+  display: inline-block;
+  /* border removida daqui */
+  color: white;
+  padding: 8px 14px;
+  margin-right: 10px;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+    .scroll-content span:hover {
+      background-color: white;
+      color: #000;
+      cursor: pointer;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+  @media (max-width: 768px) {
+  .mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mob-text{
+    text-align: center;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  }
+}
+    
   </style>
 </head>
 <body>
@@ -169,11 +329,11 @@
   <!-- Hero Section -->
   <section class="hero text-white d-flex align-items-center">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 title-principal">
-          <h1>Somos referência em diversidade e exclusive<br><span class="highlight">Somos referência.</span></h1>
-          <p>Somos referência em diversidade, exclusividade de produtos, imparcialidade, transparência.</p>
-          <a href="#" class="btn btn-gradient mt-3">Saiba Mais</a>
+      <div class="row justify-content-center justify-content-md-start">
+        <div class="col-md-6 title-principal mob-text">
+          <h1 style="color: #ffffff; margin-bottom: 15px;">Além dos cliques, uma estratégia <span class="highlight">focada em conversão.</span></h1>
+          <p style="color: #ffffff;">Somos especialistas em tráfego pago, com foco em atrair o público certo, otimizar investimentos e gerar resultados mensuráveis para o seu negócio.</p>
+          <a href="#" class="btn btn-gradient mt-3">Solicite um orçamento</a>
         </div>
         <div class="col-md-6 text-center">
           <img src="./img/Img-Edit (5).png" alt="Imagem principal" class="img-fluid" />
@@ -182,21 +342,49 @@
     </div>
   </section>
 
+<div class="container-scroll">
+    <div class="scroll-content">
+      <!-- Repetimos os elementos para o loop parecer contínuo -->
+      <span>Tráfego Pago</span>
+      <span>Google Ads</span>
+      <span>Meta Ads</span>
+      <span>Captação de Leads</span>
+      <span>Conversão</span>
+      <span>Segmentação</span>
+      <span>Otimização de ROI</span>
+      <span>Campanhas Estratégicas</span>
+      <span>Funil de Vendas</span>
+      <span>Remarketing</span>
+
+      <!-- Repetido para o loop funcionar visualmente -->
+      <span>Tráfego Pago</span>
+      <span>Google Ads</span>
+      <span>Meta Ads</span>
+      <span>Captação de Leads</span>
+      <span>Conversão</span>
+      <span>Segmentação</span>
+      <span>Otimização de ROI</span>
+      <span>Campanhas Estratégicas</span>
+      <span>Funil de Vendas</span>
+      <span>Remarketing</span>
+    </div>
+  </div>
+
   <!-- Sobre Section -->
  <section class="sobre text-white py-5 bg-dark-purple">
   <div class="container text-center">
     
     <!-- Título e Subtítulo -->
-    <div class="mb-5">
-      <h2 class="fw-bold">Há mais de 20 anos transformando o mercado financeiro para melhorar a vida</h2>
-      <p class="text-secondary mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="mx-auto mb-5" style="max-width: 750px;">
+      <h2 class="fw-bold">Sem dúvida, anunciar na internet <br><strong style="color: #b67de5;">é a escolha certa para você!</strong></h2>
+      <p class="mt-3" style="color: #fff;">Independentemente do tipo de negócio no setor alimentício, garantimos que o marketing digital funciona para você. Com nossa experiência, você poderá conquistar mais clientes e impulsionar suas vendas.</p>
     </div>
 
     <!-- Cards lado a lado -->
     <div class="row g-4">
       <!-- Card 1 -->
       <div class="col-md-4">
-        <div class="feature-card">
+        <div class="feature-card card-brilho">
           <div class="feature-icon"><i class="bi bi-eye"></i></div>
           <div class="feature-title">Transparent Fees On Everything</div>
           <div class="feature-text">A simple, straightforward investment process with clear & easy to understand pricing.</div>
@@ -205,7 +393,7 @@
 
       <!-- Card 2 -->
       <div class="col-md-4">
-        <div class="feature-card">
+        <div class="feature-card card-brilho">
           <div class="feature-icon"><i class="bi bi-bank"></i></div>
           <div class="feature-title">Take Advantage Of Tax Relief</div>
           <div class="feature-text">Claim up to 30% of your investment value back on any qualifying investments.</div>
@@ -214,7 +402,7 @@
 
       <!-- Card 3 -->
       <div class="col-md-4">
-        <div class="feature-card">
+        <div class="feature-card card-brilho">
           <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
           <div class="feature-title">Fully Regulated, Safe & Secure</div>
           <div class="feature-text">This platform is authorized and regulated in the UK and Europe.</div>
@@ -228,7 +416,7 @@
   <!-- Serviços Section com Splide -->
   <section class="servicos py-5 bg-dark-purple text-white">
     <div class="container">
-      <h2 class="text-center mb-5">Nossos Serviços</h2>
+      <h2 class="text-center mb-5" style="color: #b67de5;">Nossos Serviços</h2>
       <div class="splide" id="splide-servicos">
         <div class="splide__track">
           <ul class="splide__list">
@@ -249,12 +437,11 @@
       <div class="row">
         <div class="col-md-6 text-white title-principal">
           <img src="./img/icone.svg" alt="" class="icone">
-          <h2>Entre em Contato</h2>
+          <h2>Impulsione suas vendas com anúncios inteligentes</h2>
           <hr class="gradient-line" />
-          <p style="width: 80%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do re dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-.</p>
+          <p style="width: 80%;">Preencha o formulário e receba uma análise estratégica personalizada sobre como aplicar campanhas de tráfego pago para otimizar sua aquisição de leads, melhorar o retorno sobre investimento (ROI) e escalar os resultados do seu negócio com base em dados.</p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 d-flex flex-column justify-content-center">
           <form id="contactForm">
             <input class="form-control mb-2" name="nome" placeholder="Nome" required>
             <input class="form-control mb-2" name="empresa" placeholder="Empresa">
@@ -270,23 +457,28 @@
   </section>
 
   <!-- Depoimentos -->
-  <section class="depoimentos py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <h3>Depoimentos</h3>
-          <p>Veja o que nossos clientes dizem</p>
+
+<section class="depoimentos py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mobile">
+        <h3>Depoimentos</h3>
+        <p>Veja o que nossos clientes dizem</p>
+        <div style="margin-bottom: 20px;">
           <button id="prev" class="btn btn-outline-dark me-2">◀</button>
           <button id="next" class="btn btn-outline-dark">▶</button>
         </div>
-        <div class="col-md-6">
-          <div id="depoimento-card" class="p-4 bg-light rounded"><img src="./img/card.png" alt=""></div>
+      </div>
+      <div class="col-md-6 overflow-hidden">
+        <div id="depoimento-wrapper" class="position-relative" style="height: 100%;">
+          <div id="depoimento-card" class="review-card transition"></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Perguntas Frequentes -->
+<!-- Perguntas Frequentes -->
   <section class="perguntas bg-dark-purple text-white py-5">
     <div class="container">
       <h3 class="text-center mb-4">Perguntas Frequentes</h3>
@@ -294,7 +486,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-              Preciso ser especialista em finanças para entender?
+              Preciso ser especialista em finanças para entender1?
             </button>
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
@@ -306,7 +498,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Preciso ser especialista em finanças para entender?
+              Preciso ser especialista em finanças para entender2?
             </button>
           </h2>
           <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
@@ -318,7 +510,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingThree">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Preciso ser especialista em finanças para entender?
+              Preciso ser especialista em finanças para entender3?
             </button>
           </h2>
           <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
@@ -330,7 +522,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingFour">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-              Preciso ser especialista em finanças para entender?
+              Preciso ser especialista em finanças para entender4?
             </button>
           </h2>
           <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
@@ -348,52 +540,115 @@
     © Todos os direitos reservados
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      new Splide('#splide-servicos', {
+ <!-- Scripts do Splide -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Inicializa o Splide para os serviços
+    const splideServicos = document.getElementById('splide-servicos');
+    if (splideServicos) {
+      new Splide(splideServicos, {
         perPage: 3,
         type: 'loop',
         breakpoints: {
           768: { perPage: 1 }
         }
       }).mount();
+    }
 
-      const depoimentos = [
-        "Depoimento 1...",
-        "Depoimento 2...",
-        "Depoimento 3..."
-      ];
-      let current = 0;
-      const card = document.getElementById('depoimento-card');
-      document.getElementById('prev').onclick = () => {
-        current = (current - 1 + depoimentos.length) % depoimentos.length;
-        card.textContent = depoimentos[current];
-      };
-      document.getElementById('next').onclick = () => {
-        current = (current + 1) % depoimentos.length;
-        card.textContent = depoimentos[current];
-      };
+    // Inicializa o carrossel de depoimentos
+    const depoimentos = [
+      {
+        nome: "Agusto Lee",
+        tempo: "2 semanas atrás",
+        texto: "Essas 88 constelações dividem os mapas estelares feitos a partir das estrelas mais brilhantes.",
+        estrelas: 4,
+        imagem: "./img/foto.png"
+      },
+      {
+        nome: "Carla Mendes",
+        tempo: "1 semana atrás",
+        texto: "Serviço excelente! Me surpreendi com a qualidade e o atendimento.",
+        estrelas: 5,
+        imagem: "./img/foto2.png"
+      },
+      {
+        nome: "Rafael Souza",
+        tempo: "3 dias atrás",
+        texto: "Tive uma boa experiência. Voltaria a comprar com certeza.",
+        estrelas: 4,
+        imagem: "./img/foto3.png"
+      }
+    ];
 
-      document.getElementById("contactForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        const data = new FormData(this);
-        const text = `Nome: ${data.get("nome")}, Empresa: ${data.get("empresa")}, Email: ${data.get("email")}, Telefone: ${data.get("telefone")}, Serviço: ${data.get("servico")}, Mensagem: ${data.get("mensagem")}`;
+    let current = 0;
+    const card = document.getElementById('depoimento-card');
 
-        const phone = "SEUNUMERO";
-        window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`, "_blank");
+    function renderDepoimento(index) {
+      const dep = depoimentos[index];
+      const estrelasAtivas = "★ ".repeat(dep.estrelas);
+      const estrelasInativas = "★ ".repeat(5 - dep.estrelas);
 
-        fetch("URL_DO_GOOGLE_SHEETS_SCRIPT", {
-          method: "POST",
-          mode: "no-cors",
-          body: new URLSearchParams(data)
-        });
+      card.innerHTML = `
+        <div class="profile d-flex align-items-center mb-2">
+          <img src="${dep.imagem}" alt="Foto do usuário" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%; margin-right: 10px;">
+          <div>
+            <div class="name fw-bold">${dep.nome}</div>
+            <div class="time text-muted">${dep.tempo}</div>
+          </div>
+        </div>
+        <div class="stars mb-2">
+          ${estrelasAtivas}<span class="inactive">${estrelasInativas}</span>
+        </div>
+        <div class="review-text">
+          ${dep.texto}
+        </div>
+      `;
+    }
 
-        alert("Mensagem enviada!");
-        this.reset();
+    function animateChange(direction) {
+      card.classList.remove('slide-in-left', 'slide-in-right');
+      card.classList.add(direction === 'next' ? 'slide-left' : 'slide-right');
+
+      setTimeout(() => {
+        current = (direction === 'next')
+          ? (current + 1) % depoimentos.length
+          : (current - 1 + depoimentos.length) % depoimentos.length;
+
+        renderDepoimento(current);
+
+        card.classList.remove('slide-left', 'slide-right');
+        card.classList.add(direction === 'next' ? 'slide-in-right' : 'slide-in-left');
+      }, 300);
+    }
+
+    document.getElementById('next').addEventListener('click', () => animateChange('next'));
+    document.getElementById('prev').addEventListener('click', () => animateChange('prev'));
+
+    renderDepoimento(current);
+
+    // Formulário
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const data = new FormData(this);
+      const text = `Nome: ${data.get("nome")}, Empresa: ${data.get("empresa")}, Email: ${data.get("email")}, Telefone: ${data.get("telefone")}, Serviço: ${data.get("servico")}, Mensagem: ${data.get("mensagem")}`;
+      const phone = "SEUNUMERO";
+      window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`, "_blank");
+
+      fetch("URL_DO_GOOGLE_SHEETS_SCRIPT", {
+        method: "POST",
+        mode: "no-cors",
+        body: new URLSearchParams(data)
       });
+
+      alert("Mensagem enviada!");
+      this.reset();
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
