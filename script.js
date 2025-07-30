@@ -684,10 +684,50 @@ function scrollToForm() {
   document.getElementById('formulario').scrollIntoView({ behavior: 'smooth' });
 }
 
+// function handleSubmit(e) {
+//   e.preventDefault();
+
+// // Enviar para Google Sheets
+//   fetch("https://script.google.com/macros/s/SEU_SCRIPT_ID/exec", {
+//     method: "POST",
+//     body: JSON.stringify(formData),
+//     headers: {
+//       "Content-Type": "application/json"
+//     }
+//   })
+//   .then(response => {
+//     if (response.ok) {
+//       alert('Formulário enviado com sucesso! Entraremos em contato em breve.');
+//       window.location.href = "https://api.whatsapp.com/send?phone=5511988210558&text=Ol%C3%A1!%20Acabei%20de%20preencher%20o%20formul%C3%A1rio%20no%20site%20da%20El%C3%A9vora%20Digital%20e%20gostaria%20de%20dar%20continuidade%20ao%20diagn%C3%B3stico%20estrat%C3%A9gico.%20Podemos%20conversar%3F";
+//     } else {
+//       alert('Erro ao enviar. Tente novamente mais tarde.');
+//     }
+//   })
+//   .catch(error => {
+//     console.error('Erro:', error);
+//     alert('Erro ao enviar. Tente novamente mais tarde.');
+//   });
+// }
+
 function handleSubmit(e) {
   e.preventDefault();
 
-// Enviar para Google Sheets
+  // 🔍 1. Validação dos campos obrigatórios
+  const camposObrigatorios = {
+    nome: "Nome completo",
+    whatsapp: "WhatsApp",
+    email: "E-mail corporativo",
+    empresa: "Nome da empresa ou negócio"
+  };
+
+  for (const campo in camposObrigatorios) {
+    if (!formData[campo] || formData[campo].trim() === "") {
+      alert(`Por favor, preencha o campo obrigatório: ${camposObrigatorios[campo]}`);
+      return;
+    }
+  }
+
+  // ✉️ 2. Envio do formulário via fetch
   fetch("https://script.google.com/macros/s/SEU_SCRIPT_ID/exec", {
     method: "POST",
     body: JSON.stringify(formData),
@@ -699,16 +739,19 @@ function handleSubmit(e) {
     if (response.ok) {
       alert('Formulário enviado com sucesso! Entraremos em contato em breve.');
       window.location.href = "https://api.whatsapp.com/send?phone=5511988210558&text=Ol%C3%A1!%20Acabei%20de%20preencher%20o%20formul%C3%A1rio%20no%20site%20da%20El%C3%A9vora%20Digital%20e%20gostaria%20de%20dar%20continuidade%20ao%20diagn%C3%B3stico%20estrat%C3%A9gico.%20Podemos%20conversar%3F";
+    } else if (response.status === 404) {
+      alert('Servidor não encontrado (404). Verifique se o link está correto ou se o script foi publicado.');
+    } else if (response.status === 400) {
+      alert('Dados inválidos. Verifique os campos e tente novamente.');
     } else {
-      alert('Erro ao enviar. Tente novamente mais tarde.');
+      alert(`Erro ao enviar (código ${response.status}). Tente novamente mais tarde.`);
     }
   })
   .catch(error => {
-    console.error('Erro:', error);
-    alert('Erro ao enviar. Tente novamente mais tarde.');
+    console.error('Erro de rede:', error);
+    alert('Erro de conexão com o servidor. Verifique sua internet ou se o formulário já foi publicado.');
   });
 }
-
 
 // Inicializar a aplicação quando a página carregar
 document.addEventListener('DOMContentLoaded', function() {
