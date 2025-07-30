@@ -461,10 +461,11 @@ function renderApp() {
 
     <!-- Ícones sociais -->
     <div class="d-flex justify-content-center gap-4 mb-3">
-      <a href="#" class="footer-icon"><i class="fab fa-whatsapp"></i></a>
-      <a href="#" class="footer-icon"><i class="fas fa-envelope"></i></a>
-      <a href="#" class="footer-icon"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="footer-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://api.whatsapp.com/send?phone=5511988210558&text=Ol%C3%A1!%20Vim%20do%20site%20da%20El%C3%A9vora%20Digital%20e%20gostaria%20de%20saber%20mais!" class="footer-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=elevoradigital@gmail.com&su=Interesse em diagnóstico estratégico&body=Olá! Vim pelo site da Elévora Digital e gostaria de saber mais sobre os serviços.
+" class="footer-icon" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/elevoradigital/" class="footer-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/16U1UJhjhE/" class="footer-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
     </div>
 
     <!-- Linha divisória -->
@@ -652,6 +653,7 @@ function nextStep() {
   if (formStep < 4) {
     formStep++;
     renderApp();
+    scrollToForm(); 
   }
 }
 
@@ -659,6 +661,7 @@ function prevStep() {
   if (formStep > 1) {
     formStep--;
     renderApp();
+    scrollToForm()  // idem
   }
 }
 
@@ -695,7 +698,7 @@ function handleSubmit(e) {
   .then(response => {
     if (response.ok) {
       alert('Formulário enviado com sucesso! Entraremos em contato em breve.');
-      window.location.href = "https://wa.me/5511999999999?text=Olá!%20Preenchi%20o%20formulário%20da%20Elévora.";
+      window.location.href = "https://api.whatsapp.com/send?phone=5511988210558&text=Ol%C3%A1!%20Acabei%20de%20preencher%20o%20formul%C3%A1rio%20no%20site%20da%20El%C3%A9vora%20Digital%20e%20gostaria%20de%20dar%20continuidade%20ao%20diagn%C3%B3stico%20estrat%C3%A9gico.%20Podemos%20conversar%3F";
     } else {
       alert('Erro ao enviar. Tente novamente mais tarde.');
     }
